@@ -20,13 +20,11 @@ class Dataset(ABC):
 
         log.info("Starting Data Analysis")
         data_analysis = DataAnalysis(data_frame)
-        # print(data_frame)
 
         """
         1. Produza um grafico da distribuicao de peso (histograma) dos clientes (em Kg)
         """
         data_analysis.make_a_histogram_in_kgs(weight_column='weight')
-
 
     def get_files(self) -> list:
         log.info("Searching usable files")
@@ -40,18 +38,16 @@ class Dataset(ABC):
         return downloaded_files
 
     def __list_files(self) -> list:
-        # files = S3().list_files(bucket=self.cfg.dataset.bucket, folder=self.cfg.dataset.raw_file)
+        files = S3().list_files(bucket=self.cfg.dataset.bucket, folder=self.cfg.dataset.raw_file)
 
-        files = ['renttherunway_final_data.json']
         return files
 
     def __download_file(self, key: str) -> str:
-        # response = S3().download_file(bucket=self.cfg.dataset.bucket, key=key)
-        # if not response:
-        #     log.error(f"Can't download file {key}. Exiting...")
-        #     exit(code=1)
+        response = S3().download_file(bucket=self.cfg.dataset.bucket, key=key)
+        if not response:
+            log.error(f"Can't download file {key}. Exiting...")
+            exit(code=1)
 
-        key = 'renttherunway_final_data.json'
         return key.split('/')[-1]
 
     def __read_file(self, file: str) -> pd.core.frame.DataFrame:

@@ -50,3 +50,4 @@ Thumbs.db
 
 .python-version
 storage/
+.env
