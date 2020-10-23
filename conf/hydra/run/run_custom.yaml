@@ -1,0 +1,4 @@
+hydra:
+  version: 1
+  run:
+    dir: storage/${now:%Y-%m-%d}

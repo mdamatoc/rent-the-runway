@@ -1,0 +1,6 @@
+dataset:
+  name: rent_the_runway
+  raw_file: renttherunway_final_data.json
+  bucket: multiplan-rent-the-runway
+  separator: ;
+  format: json

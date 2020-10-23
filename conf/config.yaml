@@ -1,0 +1,4 @@
+defaults:
+  - hydra/run: run_custom
+  - hydra/job_logging: logging_custom
+  - dataset: dataset
