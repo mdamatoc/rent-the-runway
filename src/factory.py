@@ -1,7 +1,6 @@
 from src.core.logger import Logger
 from abc import ABC
 from omegaconf import dictconfig
-from datetime import datetime, timedelta
 from src.s3 import S3
 import pandas as pd
 from pandas.core import frame
@@ -15,7 +14,7 @@ class Dataset(ABC):
     def __init__(self, cfg: dictconfig):
         self.cfg = cfg
 
-    def exploratory_data_analysis(self, file: str):
+    def data_analysis(self, file: str) -> None:
         data_frame = self.__read_file(file)
 
         log.info("Starting Data Analysis")
@@ -25,6 +24,16 @@ class Dataset(ABC):
         1. Produza um grafico da distribuicao de peso (histograma) dos clientes (em Kg)
         """
         data_analysis.make_a_histogram_in_kgs(weight_column='weight')
+
+        """
+        2. Qual motivo de aluguel tem o maior numero absoluto de fits? Quantos fits ha para este motivo de aluguel?
+        """
+        data_analysis.get_biggest_rented_for(rented_for_column='rented for', fit_column='fit', fit_value='fit')
+
+        """
+        3. Qual motivo de alguem tem o maior numero relatorivo de fits? Qual e o percentual de fits para este motivo?
+        """
+        data_analysis.find_biggest_relative_rented_for(rented_for_column='rented for', fit_column='fit', fit_value='fit')
 
     def get_files(self) -> list:
         log.info("Searching usable files")
@@ -60,4 +69,5 @@ class Dataset(ABC):
     @staticmethod
     def __read_json(file: str) -> pd.core.frame.DataFrame:
         log.info("Reading json file")
+
         return pd.read_json(file, lines=True)
