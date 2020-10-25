@@ -35,6 +35,16 @@ class Dataset(ABC):
         """
         data_analysis.find_biggest_relative_rented_for(rented_for_column='rented for', fit_column='fit', fit_value='fit')
 
+        """
+        4. Produza uma estatistica de palavras mais usadas nas avaliacoes
+        """
+        data_analysis.most_common_words_in_review(review_column='review_text', top_words=35)
+
+        """
+        5. Que outra estatistica ou insight voce poderia extrair destes dados?
+        """
+        data_analysis.exploratory_data_analysis()
+
     def get_files(self) -> list:
         log.info("Searching usable files")
         files = self.__list_files()
