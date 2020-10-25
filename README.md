@@ -19,6 +19,8 @@ Note that libraries in requirements are specified with hashes because with that,
 
 ###**How To Run The Application**
 python main.py dataset=rent_the_runway  
+Also, there is a executable.sh file, which can be used to run the same command as the command above
+using _bash executable.sh_
 
 
 ###**What I Should Expect of the Application?**
