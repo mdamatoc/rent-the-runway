@@ -59,7 +59,7 @@ class DataAnalysis:
 
         # Counting occurrences of the mode value in the rented for column
         number_of_occurrences_of_mode = self.data_frame.loc[self.data_frame[rented_for_column] == mode_value].shape[0]
-        print(f"A quantidade de fits para o motivo de alguel {mode_value.upper()} é {number_of_occurrences_of_mode}.")
+        print(f"A quantidade de fits para o motivo de aluguel {mode_value.upper()} é {number_of_occurrences_of_mode}.")
 
     def find_biggest_relative_rented_for(self, rented_for_column: str, fit_column: str, fit_value: str) -> None:
         print("\n\nQuestão 3")
@@ -95,7 +95,7 @@ class DataAnalysis:
         largest_relative_value = max(relations.values())
 
         print(f"O motivo de aluguel que tem o maior número relativo de fits é o '{largest_relative_rented_for.upper()}'.")
-        print(f"O percentual de fits para este motivo de aluguel é {largest_relative_value * 100}%")
+        print(f"O percentual de fits para este motivo de aluguel é {largest_relative_value * 100}%.")
 
     def most_common_words_in_review(self, review_column: str, top_words: int) -> None:
         print('\n\nQuestão 4')
@@ -195,4 +195,4 @@ class DataAnalysis:
               f"é essencial que entendamos se temos exemplares suficientes para atender um possível aumento de demanda. "
               f"Quando falamos de produtos com nota abaixo do rating esperado, precisamos entender se este é um produto "
               f"sazonal ou não e se ocorreu algo que justifique o rating ruim do mesmo, de forma que possamos pensar em "
-              f"um plano de ação, se pertinente, para melhorar a satisfaçao do cliente deste produto.")
+              f"um plano de ação, se pertinente, para melhorar a satisfação do cliente deste produto.")

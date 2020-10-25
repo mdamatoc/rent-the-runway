@@ -16,10 +16,10 @@ def conduct(cfg: dictconfig) -> None:
 
 
 @hydra.main(config_path="conf/config.yaml")
-def job_export(cfg: dictconfig) -> None:
+def job(cfg: dictconfig) -> None:
     log.info(f"{cfg.dataset.name.upper()} - starting time: {datetime.now().strftime('%H:%M:%S')}")
     conduct(cfg)
 
 
 if __name__ == '__main__':
-    job_export()
+    job()
